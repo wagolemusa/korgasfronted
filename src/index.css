@@ -1,0 +1,104 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Montserrat", sans-serif;
+    /* background-color: black; */
+  }
+  
+  ::-webkit-scrollbar {
+    background-color: black;
+    width: 0.4vw;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ffc107;
+  }
+  
+  .show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    right: 0 !important;
+  }
+  
+  .profileside {
+      margin-left: 18vw;
+      padding: 2rem;
+  
+  }
+
+  .profileStyle {
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+
+  }
+
+  .profileStyle button {
+      margin-left: 2vw;
+  }
+  .profileStyle h1{
+      font-size: 30px;
+      font-weight: 600;
+
+  }
+  .profileStyle span {
+      font-size: 20px;
+  }
+.profileStyle h2{
+  font-size: 25px;
+  font-weight: 600;
+  padding-top: 20px;
+
+}
+  .profileStyle  i{
+      font-size: 30px;
+      margin-left: 2vw;
+  }
+  .profileStyle img{
+      width: 250px;
+      margin-left: 2vw;
+      height: 250px;
+  }
+
+  .iconstyle span {
+      font-size: 25px;
+  }
+  
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+
+      .profileside {
+        margin-left: 1vw;
+        padding: 1rem;
+    
+    }
+    .profileStyle h2{
+      font-size: 18px;
+      font-weight: 600;
+      padding-top: 20px;
+    
+    }
+      .profileStyle  i{
+          font-size: 30px;
+          margin-left: 2vw;
+        
+      }
+      .profileStyle img{
+          width: 200px;
+          margin-left: 2vw;
+          height: 200px;
+      }
+      .profileStyle h1{
+        font-size: 28px;
+        font-weight: 600;
+        padding-top: 20px;
+  
+    }
+    .iconstyle span {
+      font-size: 18px;
+  }
+  }
