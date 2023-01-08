@@ -47,3 +47,56 @@ th{
     font-size: 15px;
     font-weight: 600;
 }
+.totalgas h2{
+    font-size: 30px;
+    font-weight: 600;
+    color: #9FA6B4;
+}
+.totalgas span {
+    color: #332D2D;
+}
+
+.userform h1{
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.userform p{
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.userform h3{
+    font-size: 30px;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.userform th {
+    font-size: 15px;
+    color: rgba(0, 0, 0, .65) !important;
+    font-weight: bold;
+}
+
+.userform td {
+    font-size: 15px;
+}
+
+.btnSubmit1
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #0062cc;
+    float: right;
+    text-align: center;
+    font-weight: 600;
+    
+}
+

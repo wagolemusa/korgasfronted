@@ -120,7 +120,7 @@ export default function Sidebar() {
                   <span> Treller</span>
                 </Link>
               </li>
-              <li
+              {/* <li
                 className={currentLink === 6 ? "active" : "none"}
                 onClick={() => setCurrentLink(6)}
               >
@@ -128,17 +128,17 @@ export default function Sidebar() {
                   <IoSettings />
                   <span> Profile</span>
                 </Link>
-              </li>
+              </li> */}
        
-              {/* <li
+              <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
               >
-                <Link to="/create-profile">
+                <Link to="/getkgs">
                   <IoSettings />
-                  <span> Create Profile</span>
+                  <span> Gas Kgs</span>
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
