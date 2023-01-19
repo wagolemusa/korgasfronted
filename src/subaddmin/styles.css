@@ -1,5 +1,6 @@
+
 .userform{
-    
+
     padding: 5%;
     /* padding-top: 20px; */
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
@@ -100,3 +101,68 @@ th{
     
 }
 
+.scroller {
+    /* width: 300px; */
+    /* padding-bottom: 20px; */
+    height: 400px;
+    overflow-y: scroll;
+    /* scrollbar-color: rebeccapurple green; */
+    scrollbar-width: thin;
+  }
+
+  .open {
+    padding: 10px;
+    width: 100%;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #0062cc;
+    text-align: center;
+  }
+
+  .open  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .open p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .sold {
+    padding: 10px;
+    /* width: 100%; */
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #9FA6B2;
+    text-align: center;
+  }
+
+  .sold  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sold p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .current {
+    padding: 10px;
+    /* width: 100%; */
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #14A44D;
+    text-align: center;
+  }
+
+  .current  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .current p {
+    font-size: 30px;
+    font-weight: 600;
+  }

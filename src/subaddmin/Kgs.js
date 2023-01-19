@@ -61,7 +61,7 @@ const Kgs = () => {
             finaltotal: total ,
     
         }
-        const response = await axios.post("http://localhost:5000/api/v1/kgs", kgsdata, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/kgs", kgsdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -90,7 +90,7 @@ const Kgs = () => {
 
     useEffect(() => {
         const mybusiness = () => {
-            axios.get("http://localhost:5000/api/v1/customers", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/customers", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

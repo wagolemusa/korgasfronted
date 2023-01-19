@@ -24,7 +24,7 @@ const Tank = () => {
             closedStock
         }
 
-        const response = await axios.post("http://localhost:5000/api/v1/stock", stocks, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/stock", stocks, {
             headers: {
                 'Authorization': token,
                 'Accept':'application/json',
@@ -51,7 +51,7 @@ const Tank = () => {
 
     useEffect(() => {
         const myStock = () => {
-            axios.get('http://localhost:5000/api/v1/stock', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/stock', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

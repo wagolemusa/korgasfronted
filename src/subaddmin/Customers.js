@@ -4,14 +4,17 @@ import './styles.css'
 import axios from "axios";
 let token = localStorage.getItem('token')
 
-const Treller = () => {
-    const [treller, setTreller] = useState();
-    const [date, setDate] = useState('');
-    const [numberPlate, setNumberPlate] = useState('');
-    const [driverName, setDriverName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [first_time_net_wight, setFirst_time_net_wight] = useState('');
-    const [second_time_net_wight, setSecond_time_net_wight] = useState('');
+const Customer = () => {
+    const [businessname, setBusinessname] = useState();
+    const [phonenumber, setPhoneNumber] = useState('');
+    const [whatsupnumber, setWhatsupnumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [mounthlySale, setMounthlySale] = useState('')
+    const [address, setAddress] = useState('');
+    const [town, setTown] = useState('');
+    const [client, setClient ] = useState()
+    const [category, setCategory] = useState()
+
   
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -20,16 +23,18 @@ const Treller = () => {
         e.preventDefault();
         setError(null);
 
-        const treller = {
-            date,
-            numberPlate,
-            driverName,
-            phoneNumber,
-            first_time_net_wight,
-            second_time_net_wight,
+        const customerData = {
+            businessname,
+            phonenumber,
+            whatsupnumber,
+            email,
+            mounthlySale,
+            address,
+            town
+
     
         }
-        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/treller", treller, {
+        const response = await axios.post("http://localhost:5000/api/v1/customers", customerData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -45,7 +50,7 @@ const Treller = () => {
             setSuccess(response.data.message);
         }
         if (response.status === 201) {
-            window.location.replace("/treller")
+            window.location.replace("/client")
         }
         if (response?.data?.errors) {
             const message = response.data.errors.map(item => item.msg)
@@ -53,9 +58,10 @@ const Treller = () => {
         }
     }
 
+    //  fetch customer's data
     useEffect(() => {
-        const trellerdata = () => {
-            axios.get('https://korgasbackend.onrender.com/api/v1/treller', {
+        const clientdata = () => {
+            axios.get('http://localhost:5000/api/v1/clients', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -63,11 +69,28 @@ const Treller = () => {
                 },
             })
                 .then((res) => {
-                    const mytreller = res.data.treller;
-                    setTreller(mytreller)
+                    const myclient = res.data.customer;
+                    setClient(myclient)
                 })
         }
-        trellerdata()
+        // fetch address data
+        const myCategoey = () => {
+            axios.get("https://korgasbackend.onrender.com/api/v1/address", {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((res) => {
+                    const getcategory = res.data.address;
+                    setCategory(getcategory)
+                })
+
+            console.log("Category", category)
+
+        }
+        myCategoey()
+        clientdata()
     }, []);
 
     return (
@@ -77,7 +100,7 @@ const Treller = () => {
                 <div class="container">
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add Treller
+                        Create Customer
                     </button>
 
 
@@ -86,7 +109,7 @@ const Treller = () => {
                             <div class="modal-content">
                                 <div class="modal-header">
                                
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Treller</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Create Customer</h5>
 
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
@@ -104,35 +127,50 @@ const Treller = () => {
                                 <div class="modal-body">
                                 
                                         <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="Date"
-                                                onChange={(e) => setDate(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="Business Name"
+                                                onChange={(e) => setBusinessname(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Number Plate"
-                                                onChange={(e) => setNumberPlate(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Driver Name"
-                                                onChange={(e) => setDriverName(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Phone Number"
                                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Net Weight"
-                                                onChange={(e) => setFirst_time_net_wight(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="Whats Number"
+                                                onChange={(e) => setWhatsupnumber(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="second Net weight"
-                                                onChange={(e) => setSecond_time_net_wight(e.target.value)}
+                                            <input type="email" class="form-control" placeholder="Email"
+                                                onChange={(e) => setEmail(e.target.value)}
                                             />
                                         </div><br />
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Mounthly Sale"
+                                                onChange={(e) => setMounthlySale(e.target.value)}
+                                            />
+                                        </div><br />
+                                        <select class="form-select" aria-label="Default select example" 
+                                            onChange={(e) => setAddress(e.target.value)}
+                                    >
+                                      
+                                        {
+                                            category?.map((catdata, index) => {
+                                                return (
+                                                    // <option>{catdata.district}</option>
+                                                    <option key={index}>{catdata.district}</option>
+                                                )
+                                            })
+                                        }
+
+                                    </select><br />
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Town"
+                                                onChange={(e) => setTown(e.target.value)}
+                                            />
+                                        </div><br />
+                                      
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -157,28 +195,28 @@ const Treller = () => {
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Number Plate</th>
-                                        <th scope="col">Driver Name</th>
-                                        <th scope="col">Phone Number</th>
-                                        <th scope="col">Frist Tiime Net Weight</th>
-                                        <th scope="col">Second Tiime Net Weight</th>
-                                        <th scope="col">Gass Loss</th>
+                                        <th scope="col">Business Name</th>
+                                        <th scope="col">phone Number</th>
+                                        <th scope="col">Whatsup Number</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Daily Sale</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Town</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        treller?.map((trellerdata) => {
+                                        client?.map((clientdata) => {
                                             return (
                                                 <tr>
-                                                    <td>{trellerdata.date}</td>
-                                                    <td>{trellerdata.numberPlate}</td>
-                                                    <td>{trellerdata.driverName}</td>
-                                                    <td>{trellerdata.phoneNumber}</td>
-                                                    <td>{trellerdata.first_time_net_wight}</td>
-                                                    <td>{trellerdata.second_time_net_wight}</td>
-                                                    <td>{trellerdata.remain_gas_los}</td>
+                                                    <td>{clientdata.businessname}</td>
+                                                    <td>{clientdata.phonenumber}</td>
+                                                    <td>{clientdata.whatsupnumber}</td>
+                                                    <td>{clientdata.email}</td>
+                                                    <td>{clientdata.mounthlySale}</td>
+                                                    <td>{clientdata.address}</td>
+                                                    <td>{clientdata.town}</td>
                                                 </tr>
                                             )
                                         })
@@ -194,6 +232,6 @@ const Treller = () => {
     )
 }
 
-export default Treller;
+export default Customer;
 
 

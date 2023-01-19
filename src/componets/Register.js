@@ -13,81 +13,12 @@ function Register () {
     const [errors, setError] = useState("");
 
 
-    // const initialValues = {
-    //     firstname: "",
-    //     lastname: "",
-    //     middlename: "",
-    //     phonenumber: "",
-    //     idnumber: "",
-    //     email: "",
-    //     password: ""
-    // }
-
-    // const [formValues, setFormValues] = useState(initialValues);
-    // const [formErrors, setFormErrors] = useState({})
-    // const [ isSubmit, setIsSubmit] = useState(false)
-
-    // const handleChange = (e) => {
-    //     const  { name, value } = e.target;
-    //     setFormValues({ ...formValues, [name]: value });
-    // }
-
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     setFormErrors(validate(formValues));
-    //     setIsSubmit(true);
-    // }
-    // useEffect(() => {
-    //     console.log(formErrors);
-    //     if (Object.keys(formErrors).length === 0 && isSubmit){
-    //         console.log(formValues);
-    //     }
-    // },[formErrors])
-
-    // const validate = (values) => {
-    //     const errors = {};
-    //     const regex = /^(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}$/;
-
-    //     if(!values.firstname){
-    //         errors.firstname = "FirstName is Required!";
-    //     }
-    //     if(!values.lastname){
-    //         errors.lastname = "Lastname is Required!";
-    //     }
-    //     if(!values.middlename){
-    //         errors.middlename = "MiddleNmae Required!";
-    //     }
-    //     if(!values.phonenumber){
-    //         errors.phonenumber = "Phone Number Required";
-    //     }
-    //     if (!values.idnumber){
-    //         errors.idnumber = "Id Number is Required!";
-    //     }else if(values.idnumber .length > 8 ) {
-    //         errors.idnumber = "ID Number Must be 8 Characters"
-    //     }else if(values.idnumber .length < 8 ) {
-    //         errors.idnumber = "ID Number Must be 8 Characters"
-    //     }
-
-    //     if(!values.email){
-    //         errors.email = "Email Address Required";
-    //     }else if(!regex.test(values.email)){
-    //         errors.email = "This not a valid email format!"
-    //     }
-    //     if(!values.password){
-    //         errors.password = "Password is Required"
-    //     }else if(values.password .length < 4){
-    //         errors.password = "Password must be more than 4 character"
-    //     }
-    //     return errors;
-    // }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
    
 
-           await axios.post("/users/api/register", {
+           await axios.post("https://korgasbackend.onrender.com/users/api/register", {
                 firstname,
                 lastname,
                 middlename,

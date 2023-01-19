@@ -23,7 +23,7 @@ const User = () => {
             email,
             role
         }
-        const response = await axios.post("http://localhost:5000/users/api/register", customer, {
+        const response = await axios.post("https://korgasbackend.onrender.com/users/api/register", customer, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ const User = () => {
     // Query users
     useEffect(() => {
         const getUsers = () => {
-            axios.get("http://localhost:5000/users/api/user", {
+            axios.get("https://korgasbackend.onrender.com/users/api/user", {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'

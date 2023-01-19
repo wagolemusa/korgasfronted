@@ -120,15 +120,15 @@ export default function Sidebar() {
                   <span> Treller</span>
                 </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 6 ? "active" : "none"}
                 onClick={() => setCurrentLink(6)}
               >
-                <Link to="/profile">
+                <Link to="/client">
                   <IoSettings />
-                  <span> Profile</span>
+                  <span> Customer</span>
                 </Link>
-              </li> */}
+              </li>
        
               <li
                 className={currentLink === 7 ? "active" : "none"}
@@ -191,15 +191,15 @@ export default function Sidebar() {
                   <span> Treller</span>
                 </Link>
               </li>
-              {/* <li
+              <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                 <Link to="/companycategory">
-                  <GiTwirlCenter />
-                  <span>Company Category</span>
+                 <Link to="/client">
+                  <RiDashboard2Fill />
+                  <span>Customer</span>
                 </Link>
-              </li> */}
+              </li>
               <li
                 className={currentLink === 7 ? "active" : "none"}
                 onClick={() => setCurrentLink(7)}
@@ -213,9 +213,9 @@ export default function Sidebar() {
                 className={currentLink === 6 ? "active" : "none"}
                 onClick={() => setCurrentLink(6)}
               >
-                <Link to="/profile">
+                <Link to="/getkgs">
                   <IoSettings />
-                  <span> Profile</span>
+                  <span>Gas kgs</span>
                 </Link>
               </li>
               <li

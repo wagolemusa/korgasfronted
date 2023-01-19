@@ -32,7 +32,7 @@ const FutureCustomer = () => {
             category
         }
 
-        const response = await axios.post("http://localhost:5000/api/v1/future/customer", futureSvae, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/future/customer", futureSvae, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -62,7 +62,7 @@ const FutureCustomer = () => {
 
     useEffect(() => {
         const myFucture = () => {
-            axios.get("http://localhost:5000/api/v1/future/customer", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/future/customer", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -77,7 +77,7 @@ const FutureCustomer = () => {
 
 
         const myCategoey = () => {
-            axios.get("http://localhost:5000/api/v1/address", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/address", {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'

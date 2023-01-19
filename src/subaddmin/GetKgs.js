@@ -11,7 +11,7 @@ const GetKgs = () => {
 
     useEffect(() => {
         const mygaskgs = () => {
-            axios.get("http://localhost:5000/api/v1/kgs", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/kgs", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -38,8 +38,11 @@ const GetKgs = () => {
         <>
             <Sidebar />
             <div className='profileside'>
+
                 <div class="container">
+                <div className="scroller">
                     <h1>gas</h1>
+                   
 
                     {
                           gaskgs?.map((gasdata) => {
@@ -105,7 +108,7 @@ const GetKgs = () => {
         </div>
 
                 </div>
-            {/* </div> */}
+            </div>
         </>
     )
 }
