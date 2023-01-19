@@ -61,7 +61,7 @@ const Customer = () => {
     //  fetch customer's data
     useEffect(() => {
         const clientdata = () => {
-            axios.get('http://localhost:5000/api/v1/clients', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/clients', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -132,12 +132,12 @@ const Customer = () => {
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Number Plate"
+                                            <input type="text" class="form-control" placeholder="Phone Number"
                                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Whats Number"
+                                            <input type="text" class="form-control" placeholder="Whatsup Number"
                                                 onChange={(e) => setWhatsupnumber(e.target.value)}
                                             />
                                         </div><br />
