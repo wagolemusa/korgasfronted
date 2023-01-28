@@ -18,9 +18,14 @@ import Treller from './subaddmin/Treller';
 import Tank from './subaddmin/Tank';
 import GetKgs from './subaddmin/GetKgs';
 import Customer from './subaddmin/Customers';
+import Employee from './subaddmin/Employee';
+import Category from './subaddmin/shops/Category';
+import Shops from './subaddmin/shops/Shop';
+import Stock from './subaddmin/shops/Stock'
 
 // customer Routes
 import CustomerDashoard from './Customers/CustomerDashbord';
+
 
 
 
@@ -47,6 +52,11 @@ function App() {
           <Route path='tank' element={<Tank /> } />
           <Route path='getkgs' element={<GetKgs />} />
           <Route path='client' element={<Customer/>} />
+          <Route path='employee' element={<Employee />} />
+          <Route path ='category' element={<Category />} />
+          <Route path='/shop' element={<Shops />} />
+          <Route path='/stock' element={<Stock />} />
+
 
           {/* Customer Routes */}
           <Route path='/customer' element={<CustomerDashoard />} />

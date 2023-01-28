@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
-import './styles.css'
-import axios from "axios";
 
+import React, { useEffect, useState } from "react";
+import Sidebar from "../Sidebar";
+import '../styles.css'
+import axios from "axios";
 let token = localStorage.getItem('token')
 
-const Customer = () => {
-    const [businessname, setBusinessname] = useState();
-    const [phonenumber, setPhoneNumber] = useState('');
-    const [whatsupnumber, setWhatsupnumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [mounthlySale, setMounthlySale] = useState('')
-    const [address, setAddress] = useState('');
-    const [town, setTown] = useState('');
-    const [client, setClient ] = useState()
-    const [category, setCategory] = useState()
+const Stock = () => {
+    const [category, setCategory] = useState('');
+    const [added_stock, setAdded_stock] = useState('');
+    const [shop, setShop] = useState();
+
+
+    const [queryshop, setQueryshop] = useState();
+    const [querycategory, setQuerycategory] = useState();
+    const [stockdata, setStockdata ] = useState();
 
   
     const [error, setError] = useState("");
@@ -24,18 +23,12 @@ const Customer = () => {
         e.preventDefault();
         setError(null);
 
-        const customerData = {
-            businessname,
-            phonenumber,
-            whatsupnumber,
-            email,
-            mounthlySale,
-            address,
-            town
-
-    
+        const shopdata = {
+            category,
+            added_stock,
+            shop,
         }
-        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/customers", customerData, {
+        const response = await axios.post("http://localhost:5000/api/v1/add/stock", shopdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -51,7 +44,7 @@ const Customer = () => {
             setSuccess(response.data.message);
         }
         if (response.status === 201) {
-            window.location.replace("/client")
+            window.location.replace("/stock")
         }
         if (response?.data?.errors) {
             const message = response.data.errors.map(item => item.msg)
@@ -59,10 +52,10 @@ const Customer = () => {
         }
     }
 
-    //  fetch customer's data
     useEffect(() => {
-        const clientdata = () => {
-            axios.get('https://korgasbackend.onrender.com/api/v1/clients', {
+        // fetch shop data
+        const shopsdata = () => {
+            axios.get('http://localhost:5000/api/v1/shop', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -70,28 +63,50 @@ const Customer = () => {
                 },
             })
                 .then((res) => {
-                    const myclient = res.data.customer;
-                    setClient(myclient)
+                    const myshop = res.data.shop;
+                    setQueryshop(myshop)
                 })
         }
-        // fetch address data
+
+        
+        // fetch kgs category data
         const myCategoey = () => {
-            axios.get("https://korgasbackend.onrender.com/api/v1/address", {
+            axios.get("http://localhost:5000/api/v1/category", {
                 headers: {
+                    'Authorization': token,
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             })
                 .then((res) => {
-                    const getcategory = res.data.address;
-                    setCategory(getcategory)
+                    const getcategory = res.data.cate;
+                    setQuerycategory(getcategory)
                 })
 
-            console.log("Category", category)
+    
 
         }
+
+        const myStock = () => {
+            axios.get("http://localhost:5000/api/v1/add/stock", {
+                headers: {
+                    'Authorization': token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((res) => {
+                    const getstock = res.data.shops;
+                    setStockdata(getstock)
+                })
+
+          
+
+        }
+
         myCategoey()
-        clientdata()
+        shopsdata()
+        myStock()
     }, []);
 
     return (
@@ -101,15 +116,16 @@ const Customer = () => {
                 <div class="container">
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Create Customer
+                       Create Shops
                     </button>
+
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                
-                                    <h5 class="modal-title" id="exampleModalLabel">Create Customer</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Treller</h5>
 
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
@@ -125,52 +141,44 @@ const Customer = () => {
                                 }
                                  <form onSubmit={handleSubmit}>
                                 <div class="modal-body">
-                                
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Business Name"
-                                                onChange={(e) => setBusinessname(e.target.value)}
+                                <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Number of cyliders"
+                                                onChange={(e) => setAdded_stock(e.target.value)}
                                             />
                                         </div><br />
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Phone Number"
-                                                onChange={(e) => setPhoneNumber(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Whatsup Number"
-                                                onChange={(e) => setWhatsupnumber(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email"
-                                                onChange={(e) => setEmail(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Mounthly Sale"
-                                                onChange={(e) => setMounthlySale(e.target.value)}
-                                            />
-                                        </div><br />
-                                        <select class="form-select" aria-label="Default select example" 
-                                            onChange={(e) => setAddress(e.target.value)}
+                                <select class="form-select" aria-label="Default select example" 
+                                            onChange={(e) => setCategory(e.target.value)}
                                     >
+                                         <option>Select kgs</option>
                                       
                                         {
-                                            category?.map((catdata, index) => {
+                                            querycategory?.map((catdata, index) => {
                                                 return (
                                                     // <option>{catdata.district}</option>
-                                                    <option key={index}>{catdata.district}</option>
+                                                    <option key={index}>{catdata.category_name}</option>
                                                 )
                                             })
                                         }
 
                                     </select><br />
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Town"
-                                                onChange={(e) => setTown(e.target.value)}
-                                            />
-                                        </div><br />
-                                      
+
+                                    <select class="form-select" aria-label="Default select example" 
+                                            onChange={(e) => setShop(e.target.value)}
+                                    >
+                                       <option>Select Shop</option>
+                                        {
+                                            queryshop?.map((shopkeeper, index) => {
+                                                return (
+                                                    // <option>{catdata.district}</option>
+                                                   
+                                                    <option key={index}>{shopkeeper.shop_name}</option>
+                                                )
+                                            })
+                                        }
+
+                                    </select><br />
+                                        
+       
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -186,7 +194,6 @@ const Customer = () => {
                        
                  </div>
                         
-                
 
                     {/* Fetch Treller Data */}
                     <div className="userform">
@@ -195,28 +202,29 @@ const Customer = () => {
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">Business Name</th>
-                                        <th scope="col">phone Number</th>
-                                        <th scope="col">Whatsup Number</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Daily Sale</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Town</th>
+                                        <th scope="col">Shops</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Initial Quantity</th>
+                                        <th scope="col">Stock Added</th>
+                                        <th scope="col">Final Stock</th>
+                                     
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        client?.map((clientdata) => {
+                                        stockdata?.map((stockinfo) => {
                                             return (
                                                 <tr>
-                                                    <td>{clientdata.businessname}</td>
-                                                    <td>{clientdata.phonenumber}</td>
-                                                    <td>{clientdata.whatsupnumber}</td>
-                                                    <td>{clientdata.email}</td>
-                                                    <td>{clientdata.mounthlySale}</td>
-                                                    <td>{clientdata.address}</td>
-                                                    <td>{clientdata.town}</td>
+                                                    <td>{stockinfo.shop}</td>
+                                                    <td>{stockinfo.category}</td>
+                                                    <td>{stockinfo.price}</td>
+                                                    <td>{stockinfo.initial_quantity}</td>
+                                                    <td>{stockinfo.added_stock}</td>
+                                                
+                                                    <td>{stockinfo.stock_quantity}</td>
+                                         
                                                 </tr>
                                             )
                                         })
@@ -232,6 +240,6 @@ const Customer = () => {
     )
 }
 
-export default Customer;
+export default Stock;
 
 

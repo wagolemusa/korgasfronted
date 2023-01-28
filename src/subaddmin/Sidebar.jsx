@@ -112,8 +112,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 6 ? "active" : "none"}
+                onClick={() => setCurrentLink(6)}
               >
                 <Link to="/treller">
                   <IoSettings />
@@ -121,8 +121,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 6 ? "active" : "none"}
-                onClick={() => setCurrentLink(6)}
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
               >
                 <Link to="/client">
                   <IoSettings />
@@ -131,12 +131,48 @@ export default function Sidebar() {
               </li>
        
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 8 ? "active" : "none"}
+                onClick={() => setCurrentLink(8)}
               >
                 <Link to="/getkgs">
                   <IoSettings />
                   <span> Gas Kgs</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 9 ? "active" : "none"}
+                onClick={() => setCurrentLink(9)}
+              >
+                <Link to="/stock">
+                  <IoSettings />
+                  <span>Stock</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 10 ? "active" : "none"}
+                onClick={() => setCurrentLink(10)}
+              >
+                <Link to="/shop">
+                  <IoSettings />
+                  <span> Shops</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 11 ? "active" : "none"}
+                onClick={() => setCurrentLink(11)}
+              >
+                <Link to="/employee">
+                  <IoSettings />
+                  <span> Employees</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 12 ? "active" : "none"}
+                onClick={() => setCurrentLink(12)}
+              >
+                <Link to="/category">
+                  <IoSettings />
+                  <span>Category</span>
                 </Link>
               </li>
             </ul>
@@ -216,6 +252,42 @@ export default function Sidebar() {
                 <Link to="/getkgs">
                   <IoSettings />
                   <span>Gas kgs</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/stock">
+                  <IoSettings />
+                  <span>Stock</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/shops">
+                  <IoSettings />
+                  <span> Shops</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/employee">
+                  <IoSettings />
+                  <span> Employees</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 7 ? "active" : "none"}
+                onClick={() => setCurrentLink(7)}
+              >
+                <Link to="/category">
+                  <IoSettings />
+                  <span>Category</span>
                 </Link>
               </li>
               <li

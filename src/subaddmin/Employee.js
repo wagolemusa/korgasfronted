@@ -5,17 +5,20 @@ import axios from "axios";
 
 let token = localStorage.getItem('token')
 
-const Customer = () => {
-    const [businessname, setBusinessname] = useState();
-    const [phonenumber, setPhoneNumber] = useState('');
-    const [whatsupnumber, setWhatsupnumber] = useState('');
+const Employee = () => {
+    const [firstname, setFirstname] = useState();
+    const [lastname, setLastname] = useState('');
+    const [idnumber, setIdnumber] = useState('');
     const [email, setEmail] = useState('');
-    const [mounthlySale, setMounthlySale] = useState('')
-    const [address, setAddress] = useState('');
+    const [phone, setPhone] = useState('')
+    const [salary, setSalary] = useState('');
+    const [sex, setSex] = useState('');
+    const [responsibilty, setResponsibilty] = useState('')
+    const [address, setAddress] = useState('')
     const [town, setTown] = useState('');
-    const [client, setClient ] = useState()
-    const [category, setCategory] = useState()
 
+    const [employee, setEmployee] = useState();
+    const [category, setCategory] = useState()
   
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -24,18 +27,21 @@ const Customer = () => {
         e.preventDefault();
         setError(null);
 
-        const customerData = {
-            businessname,
-            phonenumber,
-            whatsupnumber,
+        const employeeData = {
+            firstname,
+            lastname,
+            idnumber,
+            phone,
             email,
-            mounthlySale,
+            salary,
+            sex,
+            responsibilty,
             address,
             town
 
     
         }
-        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/customers", customerData, {
+        const response = await axios.post("http://localhost:5000/api/v1/employee", employeeData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -51,7 +57,7 @@ const Customer = () => {
             setSuccess(response.data.message);
         }
         if (response.status === 201) {
-            window.location.replace("/client")
+            window.location.replace("/employee")
         }
         if (response?.data?.errors) {
             const message = response.data.errors.map(item => item.msg)
@@ -59,10 +65,10 @@ const Customer = () => {
         }
     }
 
-    //  fetch customer's data
+    //  fetch employee's data
     useEffect(() => {
-        const clientdata = () => {
-            axios.get('https://korgasbackend.onrender.com/api/v1/clients', {
+        const employeedata = () => {
+            axios.get('http://localhost:5000/api/v1/employee', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -70,8 +76,8 @@ const Customer = () => {
                 },
             })
                 .then((res) => {
-                    const myclient = res.data.customer;
-                    setClient(myclient)
+                    const myemplo = res.data.employee;
+                    setEmployee(myemplo)
                 })
         }
         // fetch address data
@@ -91,7 +97,7 @@ const Customer = () => {
 
         }
         myCategoey()
-        clientdata()
+        employeedata()
     }, []);
 
     return (
@@ -101,7 +107,7 @@ const Customer = () => {
                 <div class="container">
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Create Customer
+                        Create Employee
                     </button>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,18 +133,23 @@ const Customer = () => {
                                 <div class="modal-body">
                                 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Business Name"
-                                                onChange={(e) => setBusinessname(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="First Name"
+                                                onChange={(e) => setFirstname(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Phone Number"
-                                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="Last Name"
+                                                onChange={(e) => setLastname(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Whatsup Number"
-                                                onChange={(e) => setWhatsupnumber(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="ID Number"
+                                                onChange={(e) => setIdnumber(e.target.value)}
+                                            />
+                                        </div><br />
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Phone"
+                                                onChange={(e) => setPhone(e.target.value)}
                                             />
                                         </div><br />
                                         <div class="form-group">
@@ -147,8 +158,18 @@ const Customer = () => {
                                             />
                                         </div><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Mounthly Sale"
-                                                onChange={(e) => setMounthlySale(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="Salary"
+                                                onChange={(e) => setSalary(e.target.value)}
+                                            />
+                                        </div><br />
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Sex"
+                                                onChange={(e) => setSex(e.target.value)}
+                                            />
+                                        </div><br />
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Responsibilty"
+                                                onChange={(e) => setResponsibilty(e.target.value)}
                                             />
                                         </div><br />
                                         <select class="form-select" aria-label="Default select example" 
@@ -195,28 +216,31 @@ const Customer = () => {
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">Business Name</th>
-                                        <th scope="col">phone Number</th>
-                                        <th scope="col">Whatsup Number</th>
+                                        <th scope="col">FirstName</th>
+                                        <th scope="col">LastName</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Daily Sale</th>
-                                        <th scope="col">Address</th>
+                                        <th scope="col">IdNumber</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Salary</th>
                                         <th scope="col">Town</th>
+                                        <th scope="col">Address</th>
+                              
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        client?.map((clientdata) => {
+                                        employee?.map((emplodata) => {
                                             return (
                                                 <tr>
-                                                    <td>{clientdata.businessname}</td>
-                                                    <td>{clientdata.phonenumber}</td>
-                                                    <td>{clientdata.whatsupnumber}</td>
-                                                    <td>{clientdata.email}</td>
-                                                    <td>{clientdata.mounthlySale}</td>
-                                                    <td>{clientdata.address}</td>
-                                                    <td>{clientdata.town}</td>
+                                                    <td>{emplodata.firstname}</td>
+                                                    <td>{emplodata.lastname}</td>
+                                                    <td>{emplodata.email}</td>
+                                                    <td>{emplodata.idnumber}</td>
+                                                    <td>{emplodata.phone}</td>
+                                                    <td>{emplodata.salary}</td>
+                                                    <td>{emplodata.address}</td>
+                                                    <td>{emplodata.town}</td>
                                                 </tr>
                                             )
                                         })
@@ -232,6 +256,6 @@ const Customer = () => {
     )
 }
 
-export default Customer;
+export default Employee;
 
 
