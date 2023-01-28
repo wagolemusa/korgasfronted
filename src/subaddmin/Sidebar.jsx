@@ -175,6 +175,24 @@ export default function Sidebar() {
                   <span>Category</span>
                 </Link>
               </li>
+              <li
+                className={currentLink === 13 ? "active" : "none"}
+                onClick={() => setCurrentLink(13)}
+              >
+                <Link to="/product">
+                  <IoSettings />
+                  <span>Product</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 14 ? "active" : "none"}
+                onClick={() => setCurrentLink(14)}
+              >
+                <Link to="/productcategory">
+                  <IoSettings />
+                  <span>Product Categpry</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -288,6 +306,24 @@ export default function Sidebar() {
                 <Link to="/category">
                   <IoSettings />
                   <span>Category</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 13 ? "active" : "none"}
+                onClick={() => setCurrentLink(13)}
+              >
+                <Link to="/product">
+                  <IoSettings />
+                  <span>Product</span>
+                </Link>
+              </li>
+              <li
+                className={currentLink === 14 ? "active" : "none"}
+                onClick={() => setCurrentLink(14)}
+              >
+                <Link to="/productcategory">
+                  <IoSettings />
+                  <span>Product Categpry</span>
                 </Link>
               </li>
               <li
