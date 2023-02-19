@@ -41,7 +41,7 @@ const Employee = () => {
 
     
         }
-        const response = await axios.post("http://localhost:5000/api/v1/employee", employeeData, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/employee", employeeData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -68,7 +68,7 @@ const Employee = () => {
     //  fetch employee's data
     useEffect(() => {
         const employeedata = () => {
-            axios.get('http://localhost:5000/api/v1/employee', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/employee', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

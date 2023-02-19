@@ -20,7 +20,7 @@ const Category = () => {
             category_name
         }
 
-        const response = await axios.post("http://localhost:5000/api/v1/category",categoryData, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/category",categoryData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -47,7 +47,7 @@ const Category = () => {
     //  fetch Categiory data
     useEffect(() => { 
         const myCategory =() => {
-            axios.get('http://localhost:5000/api/v1/category', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/category', {
                headers:{
                 'Authorization': token,
                 'Accept': 'application/json',

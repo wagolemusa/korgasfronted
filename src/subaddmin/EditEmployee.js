@@ -39,7 +39,7 @@ const EditEmployee = () => {
             town,
             price
         }
-        const response = await axios.put('http://localhost:5000/api/v1/customer/' + path, UpdatecustomerData, {
+        const response = await axios.put('https://korgasbackend.onrender.com/api/v1/customer/' + path, UpdatecustomerData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -66,7 +66,7 @@ const EditEmployee = () => {
 
     useEffect(() =>{
         const getCustomerId = () => {
-            axios.get('http://localhost:3000/api/v1/client/' + path, {
+            axios.get('https://korgasbackend.onrender.com/api/v1/client/' + path, {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

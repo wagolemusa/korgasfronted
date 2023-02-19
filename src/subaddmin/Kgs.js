@@ -64,7 +64,7 @@ const Kgs = () => {
             finaltotal: total ,
     
         }
-        const response = await axios.post("http://localhost:5000/api/v1/kgs", kgsdata, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/kgs", kgsdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -106,7 +106,7 @@ const Kgs = () => {
         }
 
         const myTank = () => {
-            axios.get("http://localhost:5000/api/v1/tank/category", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/tank/category", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

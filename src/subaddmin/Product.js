@@ -29,7 +29,7 @@ const Product = () => {
             points
     
         }
-        const response = await axios.post("http://localhost:5000/api/v1/product", productdata, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/product", productdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -56,7 +56,7 @@ const Product = () => {
     useEffect(() => {
         // fetch product  data
         const productsdata = () => {
-            axios.get('http://localhost:5000/api/v1/product', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/product', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -73,7 +73,7 @@ const Product = () => {
 
         // fetch address data
         const productCategory = () => {
-            axios.get("http://localhost:5000/api/v1/category/product", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/category/product", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

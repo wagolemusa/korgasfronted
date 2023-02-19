@@ -13,7 +13,7 @@ const SubAddminDashboard = () => {
 
         // get the sums from the kgs table
         const mytotalgas = () => {
-            axios.get("http://localhost:5000/api/v1/total", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/total", {
                 headers: {
                  
                     'Accept': 'application/json',

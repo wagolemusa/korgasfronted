@@ -29,7 +29,7 @@ const Shop = () => {
             town
     
         }
-        const response = await axios.post("http://localhost:5000/api/v1/shop", shopdata, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/shop", shopdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -56,7 +56,7 @@ const Shop = () => {
     useEffect(() => {
         // fetch shop data
         const shopsdata = () => {
-            axios.get('http://localhost:5000/api/v1/shop', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/shop', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -70,7 +70,7 @@ const Shop = () => {
         }
 
         const employeedata = () => {
-            axios.get('http://localhost:5000/api/v1/employee', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/employee', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',

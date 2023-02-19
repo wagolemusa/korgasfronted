@@ -28,7 +28,7 @@ const Stock = () => {
             added_stock,
             shop,
         }
-        const response = await axios.post("http://localhost:5000/api/v1/add/stock", shopdata, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/add/stock", shopdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -55,7 +55,7 @@ const Stock = () => {
     useEffect(() => {
         // fetch shop data
         const shopsdata = () => {
-            axios.get('http://localhost:5000/api/v1/shop', {
+            axios.get('https://korgasbackend.onrender.com/api/v1/shop', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -71,7 +71,7 @@ const Stock = () => {
         
         // fetch kgs category data
         const myCategoey = () => {
-            axios.get("http://localhost:5000/api/v1/category", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/category", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -82,13 +82,10 @@ const Stock = () => {
                     const getcategory = res.data.cate;
                     setQuerycategory(getcategory)
                 })
-
-    
-
         }
 
         const myStock = () => {
-            axios.get("http://localhost:5000/api/v1/add/stock", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/add/stock", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -99,9 +96,6 @@ const Stock = () => {
                     const getstock = res.data.shops;
                     setStockdata(getstock)
                 })
-
-          
-
         }
 
         myCategoey()

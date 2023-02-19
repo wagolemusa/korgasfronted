@@ -21,7 +21,7 @@ const Productcateogry = () => {
             name,
       
         }
-        const response = await axios.post("http://localhost:5000/api/v1/category/product", cataData, {
+        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/category/product", cataData, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -48,7 +48,7 @@ const Productcateogry = () => {
     // Query users
     useEffect(() => {
         const productcate = () => {
-            axios.get("http://localhost:5000/api/v1/category/product", {
+            axios.get("https://korgasbackend.onrender.com/api/v1/category/product", {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
