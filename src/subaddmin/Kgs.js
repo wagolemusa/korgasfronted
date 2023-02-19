@@ -13,9 +13,11 @@ const Kgs = () => {
     const [total, setTotal] = useState(0)
     const [numberkgs, setNumberkgs] = useState("");
     const [cyliders, setCyliders] = useState("");
+    const [tank_category, setTank_category] = useState("")
     const [itemList, updateItemList] = useState([])
 
     const [ business,  setBusiness ] = useState()
+    const [ tank, setTank ] = useState()
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -53,7 +55,8 @@ const Kgs = () => {
         const kgsdata = {
             date,
             customer,
-            
+            tank_category,
+
             cylinders: itemList.map(item => (
                 {...item, kgs:item.numberkgs, quantity:item.cyliders }
             )),
@@ -61,7 +64,7 @@ const Kgs = () => {
             finaltotal: total ,
     
         }
-        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/kgs", kgsdata, {
+        const response = await axios.post("http://localhost:5000/api/v1/kgs", kgsdata, {
             headers: {
                 'Authorization': token,
                 'Accept': 'application/json',
@@ -87,7 +90,6 @@ const Kgs = () => {
 
 
     //  Query busines names
-
     useEffect(() => {
         const mybusiness = () => {
             axios.get("https://korgasbackend.onrender.com/api/v1/customers", {
@@ -103,6 +105,21 @@ const Kgs = () => {
                 })
         }
 
+        const myTank = () => {
+            axios.get("http://localhost:5000/api/v1/tank/category", {
+                headers: {
+                    'Authorization': token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((res) => {
+                    const gettalk = res.data.tank.korgas_tank;
+                    setTank(gettalk)
+                })
+        }
+
+        myTank()
         mybusiness()
 
     }, []);
@@ -162,21 +179,26 @@ const Kgs = () => {
                                      onChange={(e) => setDate(e.target.value)}
                                     />
                                 </div><br />
-                           
 
+                                {/* <div class="form-group">
+                                    <input type="text" class="form-control" value={tank} placeholder=""
+                                     onChange={(e) => setTank_category(e.target.value)}  
+                                    />
+                                </div><br /> */}
+                           
                                 <select class="form-select" aria-label="Default select example" 
                                         onChange={(e) => setCustomer(e.target.value)}
                                     >
-                                      
+                                        <option key="1">Select Customer</option>
                                         {
                                             business?.map((bazdata, index) => {
+                                                
                                                 return (
-                                                    // <option>{catdata.district}</option>
+                                                    
                                                     <option key={index}>{bazdata.businessname}</option>
                                                 )
                                             })
                                         }
-
                                     </select><br/>
 
                                 {
@@ -188,7 +210,7 @@ const Kgs = () => {
                                         return (
                                             <div key={itemObj.key} className="items">
 
-                                                <p>{itemObj.numberkgs}kgs *  {itemObj.cyliders} cyliders </p>
+                                                <p>{itemObj.numberkgs} kgs *  {itemObj.cyliders} cyliders </p>
 
                                                 <p>{Number(productNum)} </p>
 

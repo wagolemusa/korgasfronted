@@ -1,12 +1,10 @@
 import React from 'react'
-import f from './f.png'
+import Korga2 from './Korga2.png'
 import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <div>
-
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
                 <div class="container-fluid">
 
                     <button
@@ -25,7 +23,7 @@ function Navbar() {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         <a class="navbar-brand mt-2 mt-lg-0" href="/">
-                            <img src={f} alt="logo" />
+                            <img src={Korga2} alt="logo" />
                         </a>
 
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,9 +35,6 @@ function Navbar() {
                         </ul>
 
                     </div>
-
-
-
                     <div class="d-flex align-items-center">
                     <Link to="/register" className='nav-link'>Register</Link>
                     <Link to="/login" type="button" class="btn btn-primary">Login</Link>

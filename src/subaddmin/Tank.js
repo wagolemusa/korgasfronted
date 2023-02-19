@@ -24,7 +24,7 @@ const Tank = () => {
             closedStock
         }
 
-        const response = await axios.post("https://korgasbackend.onrender.com/api/v1/stock", stocks, {
+        const response = await axios.post("http://localhost:5000/api/v1/stock", stocks, {
             headers: {
                 'Authorization': token,
                 'Accept':'application/json',
@@ -51,7 +51,7 @@ const Tank = () => {
 
     useEffect(() => {
         const myStock = () => {
-            axios.get('https://korgasbackend.onrender.com/api/v1/stock', {
+            axios.get('http://localhost:5000/api/v1/stock', {
                 headers: {
                     'Authorization': token,
                     'Accept': 'application/json',
@@ -110,8 +110,6 @@ const Tank = () => {
                             </form>
                             </div>
                             
-
-
                         </div>
                         <div className="col-md-8">
 
@@ -123,10 +121,11 @@ const Tank = () => {
                                     <tr>
 
                                         <th scope="col">Date</th>
-                                        <th scope="col">Open Stock</th>
-                                        <th scope="col">Closed Stock</th>
-                                        <th scope="col">Total Stock</th>
-                                        <th scope="col">Current Stock</th>
+                                        <th scope="col">Gas Stock</th>
+                              
+                                        {/* <th scope="col">Current Stock</th> */}
+                                        <th scope="col">Tank Number</th>
+                                        <th scope="col">Gas</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -135,10 +134,11 @@ const Tank = () => {
                                             return (
                                                 <tr>
                                                     <td>{stockdata.date}</td>
-                                                    <td>{stockdata.openStock}</td>
                                                     <td>{stockdata.closedStock}</td>
-                                                    <td>{stockdata.totalstock}</td>
-                                                    <td>{stockdata.currentStock}</td>
+
+                                                    {/* <td>{stockdata.currentStock}</td> */}
+                                                    <td>{stockdata. tank_category}</td>
+                                                    <td>{stockdata. in_stock}</td>
                                             
                                                 </tr>
                                             )

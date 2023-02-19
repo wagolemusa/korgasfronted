@@ -22,13 +22,12 @@ import Employee from './subaddmin/Employee';
 import Category from './subaddmin/shops/Category';
 import Shops from './subaddmin/shops/Shop';
 import Stock from './subaddmin/shops/Stock'
+import Product from './subaddmin/Product';
+import Productcateogry from './subaddmin/Productcategory'
+import EditEmployee from './subaddmin/EditEmployee';
 
 // customer Routes
 import CustomerDashoard from './Customers/CustomerDashbord';
-
-
-
-
 
 function App() {
   return (
@@ -56,6 +55,9 @@ function App() {
           <Route path ='category' element={<Category />} />
           <Route path='/shop' element={<Shops />} />
           <Route path='/stock' element={<Stock />} />
+          <Route path='/product' element={<Product />} />
+          <Route path='/Productcategory' element={<Productcateogry />} />
+          <Route path='/customer/:id' element={<EditEmployee />} />
 
 
           {/* Customer Routes */}
