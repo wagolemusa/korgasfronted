@@ -255,8 +255,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 8 ? "active" : "none"}
+                onClick={() => setCurrentLink(8)}
               >
                 <Link to="/future">
                 <FiLogOut />
@@ -264,8 +264,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 6 ? "active" : "none"}
-                onClick={() => setCurrentLink(6)}
+                className={currentLink === 9 ? "active" : "none"}
+                onClick={() => setCurrentLink(9)}
               >
                 <Link to="/getkgs">
                   <IoSettings />
@@ -273,8 +273,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 10 ? "active" : "none"}
+                onClick={() => setCurrentLink(10)}
               >
                 <Link to="/stock">
                   <IoSettings />
@@ -282,8 +282,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 11 ? "active" : "none"}
+                onClick={() => setCurrentLink(11)}
               >
                 <Link to="/shops">
                   <IoSettings />
@@ -291,8 +291,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 12 ? "active" : "none"}
+                onClick={() => setCurrentLink(12)}
               >
                 <Link to="/employee">
                   <IoSettings />
@@ -300,8 +300,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 13 ? "active" : "none"}
+                onClick={() => setCurrentLink(13)}
               >
                 <Link to="/category">
                   <IoSettings />
@@ -309,8 +309,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 13 ? "active" : "none"}
-                onClick={() => setCurrentLink(13)}
+                className={currentLink === 14 ? "active" : "none"}
+                onClick={() => setCurrentLink(14)}
               >
                 <Link to="/product">
                   <IoSettings />
@@ -318,8 +318,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 14 ? "active" : "none"}
-                onClick={() => setCurrentLink(14)}
+                className={currentLink === 15 ? "active" : "none"}
+                onClick={() => setCurrentLink(15)}
               >
                 <Link to="/productcategory">
                   <IoSettings />
@@ -327,8 +327,8 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li
-                className={currentLink === 7 ? "active" : "none"}
-                onClick={() => setCurrentLink(7)}
+                className={currentLink === 16 ? "active" : "none"}
+                onClick={() => setCurrentLink(16)}
               >
                 <Link to="/logout">
                 <FiLogOut />

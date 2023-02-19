@@ -26,10 +26,8 @@ import Product from './subaddmin/Product';
 import Productcateogry from './subaddmin/Productcategory'
 import EditEmployee from './subaddmin/EditEmployee';
 
-
 // customer Routes
 import CustomerDashoard from './Customers/CustomerDashbord';
-
 
 function App() {
   return (

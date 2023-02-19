@@ -14,13 +14,9 @@ const Customer = () => {
     const [category, setCategory] = useState('')
     const [address, setAddress] = useState('');
     const [town, setTown] = useState('');
-    const [id, setID] = useState('');
-
     const [price, setPrice] = useState('');
     const [client, setClient ] = useState()
     const [category1, setCategory1] = useState()
-
-  
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
@@ -61,10 +57,6 @@ const Customer = () => {
             setError(message)
         }
     }
-
-    
-
-
     //  fetch customer's data
     useEffect(() => {
         const clientdata = () => {
@@ -80,10 +72,7 @@ const Customer = () => {
                     setClient(myclient)
                 })
         }
-        
- 
-     
-
+    
         // fetch address data
         const myCategoey = () => {
             axios.get("https://korgasbackend.onrender.com/api/v1/address", {
@@ -96,14 +85,10 @@ const Customer = () => {
                     const getcategory = res.data.address;
                     setCategory1(getcategory)
                 })
-
-      
-
         }
         myCategoey()
         clientdata()
     }, []);
-
 
     return (
         <>
@@ -209,10 +194,6 @@ const Customer = () => {
                        
                  </div>
                         
-                
-       
-                        
-
                     {/* Fetch Treller Data */}
                     <div className="userform">
                         <div class="table-responsive">
