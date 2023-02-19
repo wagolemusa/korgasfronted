@@ -24,6 +24,7 @@ import Shops from './subaddmin/shops/Shop';
 import Stock from './subaddmin/shops/Stock'
 import Product from './subaddmin/Product';
 import Productcateogry from './subaddmin/Productcategory'
+import EditEmployee from './subaddmin/EditEmployee';
 
 
 // customer Routes
@@ -58,6 +59,7 @@ function App() {
           <Route path='/stock' element={<Stock />} />
           <Route path='/product' element={<Product />} />
           <Route path='/Productcategory' element={<Productcateogry />} />
+          <Route path='/customer/:id' element={<EditEmployee />} />
 
 
           {/* Customer Routes */}

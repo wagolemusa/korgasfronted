@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import './styles.css'
 import axios from "axios";
@@ -6,15 +7,18 @@ import axios from "axios";
 let token = localStorage.getItem('token')
 
 const Customer = () => {
-    const [businessname, setBusinessname] = useState();
+    const [businessname, setBusinessname] = useState('');
     const [phonenumber, setPhoneNumber] = useState('');
     const [whatsupnumber, setWhatsupnumber] = useState('');
     const [email, setEmail] = useState('');
-    const [mounthlySale, setMounthlySale] = useState('')
+    const [category, setCategory] = useState('')
     const [address, setAddress] = useState('');
     const [town, setTown] = useState('');
+    const [id, setID] = useState('');
+
+    const [price, setPrice] = useState('');
     const [client, setClient ] = useState()
-    const [category, setCategory] = useState()
+    const [category1, setCategory1] = useState()
 
   
     const [error, setError] = useState("");
@@ -29,11 +33,10 @@ const Customer = () => {
             phonenumber,
             whatsupnumber,
             email,
-            mounthlySale,
+            category,
             address,
-            town
-
-    
+            town,
+            price
         }
         const response = await axios.post("https://korgasbackend.onrender.com/api/v1/customers", customerData, {
             headers: {
@@ -59,6 +62,9 @@ const Customer = () => {
         }
     }
 
+    
+
+
     //  fetch customer's data
     useEffect(() => {
         const clientdata = () => {
@@ -74,6 +80,10 @@ const Customer = () => {
                     setClient(myclient)
                 })
         }
+        
+ 
+     
+
         // fetch address data
         const myCategoey = () => {
             axios.get("https://korgasbackend.onrender.com/api/v1/address", {
@@ -84,15 +94,16 @@ const Customer = () => {
             })
                 .then((res) => {
                     const getcategory = res.data.address;
-                    setCategory(getcategory)
+                    setCategory1(getcategory)
                 })
 
-            console.log("Category", category)
+      
 
         }
         myCategoey()
         clientdata()
     }, []);
+
 
     return (
         <>
@@ -146,9 +157,20 @@ const Customer = () => {
                                                 onChange={(e) => setEmail(e.target.value)}
                                             />
                                         </div><br />
+                                        <select class="form-select" aria-label="Default select example" 
+                                            onChange={(e) => setCategory(e.target.value)}
+                                    >
+                                         <option>Select</option>
+                                       <option>resaler</option>
+                                       <option>hotel</option>
+                                       <option>hospital</option>
+                                       <option>campany</option>
+                                       <option>home</option>
+                                       <option>schools</option>
+                                    </select><br />
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Mounthly Sale"
-                                                onChange={(e) => setMounthlySale(e.target.value)}
+                                            <input type="text" class="form-control" placeholder="Price"
+                                                onChange={(e) => setPrice(e.target.value)}
                                             />
                                         </div><br />
                                         <select class="form-select" aria-label="Default select example" 
@@ -156,7 +178,8 @@ const Customer = () => {
                                     >
                                       
                                         {
-                                            category?.map((catdata, index) => {
+                                            category1?.map((catdata, index) => {
+                                                <option>Select Destrict</option>
                                                 return (
                                                     // <option>{catdata.district}</option>
                                                     <option key={index}>{catdata.district}</option>
@@ -187,6 +210,8 @@ const Customer = () => {
                  </div>
                         
                 
+       
+                        
 
                     {/* Fetch Treller Data */}
                     <div className="userform">
@@ -202,6 +227,8 @@ const Customer = () => {
                                         <th scope="col">Daily Sale</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Town</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Edit</th>
 
                                     </tr>
                                 </thead>
@@ -217,6 +244,11 @@ const Customer = () => {
                                                     <td>{clientdata.mounthlySale}</td>
                                                     <td>{clientdata.address}</td>
                                                     <td>{clientdata.town}</td>
+                                                    <td>{clientdata.price}</td>
+                                                     <td>
+                                                     <Link to={`/customer/${clientdata._id}`} type="button" class="btn btn-primary" >Edit</Link>
+                                                     </td>
+                                                   
                                                 </tr>
                                             )
                                         })

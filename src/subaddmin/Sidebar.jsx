@@ -23,9 +23,9 @@ export default function Sidebar() {
       duration: 1000,
       reset: false,
     });
-
+    
     sr.reveal(
-      `
+      `orgas
           .brand,
           .links>ul>li:nth-of-type(1),
       .links>ul>li:nth-of-type(2),
@@ -50,7 +50,7 @@ export default function Sidebar() {
         <div className="top">
           <div className="brand">
             {/* <FaTaxi /> */}
-            <span>BLACK GOLD</span>
+            <span>KORGAS</span>
           </div>
           <div className="toggle">
             {navbarState ? (

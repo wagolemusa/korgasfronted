@@ -13,7 +13,7 @@ const SubAddminDashboard = () => {
 
         // get the sums from the kgs table
         const mytotalgas = () => {
-            axios.get("https://korgasbackend.onrender.com/api/v1/total", {
+            axios.get("http://localhost:5000/api/v1/total", {
                 headers: {
                  
                     'Accept': 'application/json',
@@ -50,12 +50,12 @@ const SubAddminDashboard = () => {
 
 
     // loop for the total gas
-    let gastatol =  totalgas?.map((gas) =>{
-            return gas.total;
-        })
+    // let gastatol =  totalgas?.map((gas) =>{
+    //         return gas.total;
+    //     })
     
     
-    let final = gastatol - currentgas;
+    let final = totalgas - currentgas;
    
 
 
@@ -79,7 +79,7 @@ const SubAddminDashboard = () => {
                             <div className="col">
                             <div className="sold">
                             <h2> Total Gas Sold</h2>
-                            <p>{gastatol}</p>
+                            <p>{totalgas}</p>
                             </div>
                             </div>
                             
