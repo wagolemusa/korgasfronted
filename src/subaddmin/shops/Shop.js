@@ -97,8 +97,6 @@ const Shop = () => {
                     setCategory(getcategory)
                 })
 
-            console.log("Category", category)
-
         }
         myCategoey()
         employeedata()

@@ -13,7 +13,6 @@ const Tank = () => {
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
-
     const handleSubmit = async(e) => {
         e.preventDefault();
         setError(null);
@@ -137,8 +136,8 @@ const Tank = () => {
                                                     <td>{stockdata.closedStock}</td>
 
                                                     {/* <td>{stockdata.currentStock}</td> */}
-                                                    <td>{stockdata. tank_category}</td>
-                                                    <td>{stockdata. in_stock}</td>
+                                                    <td>{stockdata.tank_category}</td>
+                                                    <td>{stockdata.in_stock}</td>
                                             
                                                 </tr>
                                             )
