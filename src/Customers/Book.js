@@ -3,6 +3,8 @@ import CustomerSider from "./CustomerSider";
 import Payment from "./Payment";
 import Upload from "./Upload";
 import './styles.css'
+import axios from "axios";
+
 
 let token = localStorage.getItem('token')
 let userPrice = JSON.parse(localStorage.getItem('user'))
@@ -185,7 +187,7 @@ const Book = () => {
                                     <h2>Total: &nbsp; &nbsp; <span>{total}</span> </h2>
                                 </div>
                                 <div className="totalgas">
-                                    <h2>Amount: &nbsp; &nbsp; <span> {cash} </span> </h2>
+                                    <h2>Amount: &nbsp; &nbsp; <span> {amount} </span> </h2>
                                 </div>
                                 <button type="submit" class="btnSubmit">Save Gas Kgs</button>
                             </form>
