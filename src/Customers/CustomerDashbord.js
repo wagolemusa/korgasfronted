@@ -1,9 +1,16 @@
 import React from "react";
+import CustomerSider from "./CustomerSider";
 
 const CustomerDashoard = () => {
-    return(
+    return (
+
         <>
-            <h1>Yes am the customer</h1>
+            <CustomerSider />
+            <div className='profileside'>
+                <div class="container">
+                    <h1>Yes am the customer</h1>
+                </div>
+            </div>
         </>
     )
 }

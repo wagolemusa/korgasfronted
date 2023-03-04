@@ -37,15 +37,16 @@ function Login() {
         }
 
         if (response.status === 201 && response.data.user.role === 'manager') {
-            const { token, manager } = response.data;
+            const { token, manager, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('manager', JSON.stringify(manager));
+            localStorage.setItem('user', user);
+            localStorage.setItem('user', JSON.stringify(user));
             window.location.replace("/subadmin")
 
         } else if (response.status === 201 && response.data.user.role === 'customer') {
-            const { token, customer } = response.data;
+            const { token, customer, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('customer', JSON.stringify(customer));
+            localStorage.setItem('user', JSON.stringify(user.price));
             window.location.replace("/customer")
 
         } else if (response.status === 201 && response.data.user.role === 'user') {

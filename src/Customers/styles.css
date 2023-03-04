@@ -1,0 +1,181 @@
+
+.userform{
+
+    padding: 5%;
+    /* padding-top: 20px; */
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.userform h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, .45) !important;
+    padding-bottom: 5px;;
+}
+.btnSubmit {
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    /* width: 200px; */
+    height: 50px;
+    border-radius: 2px;
+    border: 1px solid #ede7f6;
+    padding: 10px;
+    align-items: center;
+}
+.items p{
+    margin: 0px;
+    font-size: 18px;
+   font-weight: 600;
+}
+.items button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 2px;
+    align-items: center;
+    font-size: 15px;
+    outline: none;
+}
+
+th{
+    font-size: 15px;
+    font-weight: 600;
+}
+.totalgas h2{
+    font-size: 30px;
+    font-weight: 600;
+    color: #9FA6B4;
+}
+.totalgas span {
+    color: #332D2D;
+}
+
+.userform h1{
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.userform p{
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.userform h3{
+    font-size: 30px;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.userform th {
+    font-size: 15px;
+    color: rgba(0, 0, 0, .65) !important;
+    font-weight: bold;
+}
+
+.userform td {
+    font-size: 15px;
+}
+
+.btnSubmit1
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #0062cc;
+    float: right;
+    text-align: center;
+    font-weight: 600;
+    
+}
+
+.scroller {
+    /* width: 300px; */
+    /* padding-bottom: 20px; */
+    height: 400px;
+    overflow-y: scroll;
+    /* scrollbar-color: rebeccapurple green; */
+    scrollbar-width: thin;
+  }
+
+  .open {
+    padding: 10px;
+    width: 100%;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #0062cc;
+    text-align: center;
+  }
+
+  .open  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .open p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .sold {
+    padding: 10px;
+    /* width: 100%; */
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #9FA6B2;
+    text-align: center;
+  }
+
+  .sold  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sold p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .current {
+    padding: 10px;
+    /* width: 100%; */
+    border-radius: 0.5rem;
+    color: #fff;
+    padding-top: 38px;
+    background-color: #14A44D;
+    text-align: center;
+  }
+
+  .current  h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .current p {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .btnprice{
+    text-transform: uppercase;
+    vertical-align: bottom;
+    border: 0;
+    box-shadow: 0 2px 5px 0rgba(0,0,0,.2),0 2px 10px 0 rgba(0,0,0,.1);
+    padding: 0.625rem 1.5rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #ffc107;
+    color: #000000;
+    font-weight: 600;
+    width: 320px;
+  }
