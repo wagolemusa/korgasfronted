@@ -8,6 +8,7 @@ const User = () => {
     const [lastname, setLastname] = useState('')
     const [email, setEmail] = useState('')
     const [role, setRole] = useState('')
+    const [ price, setPrice ] = useState('')
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const [getuserinfo, setGetuserinfo] = useState()
@@ -21,9 +22,10 @@ const User = () => {
             firstname,
             lastname,
             email,
-            role
+            role,
+            price
         }
-        const response = await axios.post("https://korgasbackend.onrender.com/users/api/register", customer, {
+        const response = await axios.post("http://localhost:5000/users/api/register", customer, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -111,6 +113,12 @@ const User = () => {
                                         </select>
                                     </div>
                                     <br />
+                                    <div className="form-group">
+                                        <input type="number" className="form-control" placeholder="Price"
+                                            onChange={(e) => setPrice(e.target.value)}
+                                        />
+                                    </div>
+                                    <br/>
                                     <button type="submit" class="btnSubmit">Create User</button>
                                 </form>
                             </div>
@@ -126,6 +134,7 @@ const User = () => {
                                                 <th scope="col">LastName</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Role</th>
+                                                <th scope="col">Price</th>
                                                 <th scope="col">Password</th>
                                             </tr>
                                         </thead>
@@ -138,6 +147,7 @@ const User = () => {
                                                             <td>{userdata.lastname}</td>
                                                             <td>{userdata.email}</td>
                                                             <td>{userdata.role}</td>
+                                                            <td>{userdata.price}</td>
                                                             <td>{userdata.password1}</td>
 
                                                         </tr>

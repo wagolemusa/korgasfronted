@@ -28,6 +28,7 @@ import EditEmployee from './subaddmin/EditEmployee';
 
 // customer Routes
 import CustomerDashoard from './Customers/CustomerDashbord';
+import Book from './Customers/Book';
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
 
           {/* Customer Routes */}
           <Route path='/customer' element={<CustomerDashoard />} />
+          <Route path='/book' element={<Book />} />
 
         </Routes>
       </Router>

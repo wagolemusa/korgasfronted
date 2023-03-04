@@ -13,7 +13,6 @@ const Kgs = () => {
     const [total, setTotal] = useState(0)
     const [numberkgs, setNumberkgs] = useState("");
     const [cyliders, setCyliders] = useState("");
-    const [tank_category, setTank_category] = useState("")
     const [itemList, updateItemList] = useState([])
 
     const [ business,  setBusiness ] = useState()
@@ -55,7 +54,7 @@ const Kgs = () => {
         const kgsdata = {
             date,
             customer,
-            tank_category,
+        
 
             cylinders: itemList.map(item => (
                 {...item, kgs:item.numberkgs, quantity:item.cyliders }
@@ -135,6 +134,7 @@ const Kgs = () => {
                     <div className="row">
                         <div className="col-md-3">
                             <div className="userform">
+                                <h3>Save Records</h3>
                                 <form onSubmit={handleSubmit}>
                                     <div class="form-group">
 
@@ -163,6 +163,7 @@ const Kgs = () => {
 
                         <div className="col-md-4">
                             <div className="userform">
+                                
                             {!error && <div className='suc'>{success ? success : ""}</div>}
                                 {!success && Array.isArray(error) ? error.map((item, i) => (
                                     <div class="notice notice-danger alert fade show" role="alert">
@@ -209,7 +210,7 @@ const Kgs = () => {
 
                                         return (
                                             <div key={itemObj.key} className="items">
-
+                                      
                                                 <p>{itemObj.numberkgs} kgs *  {itemObj.cyliders} cyliders </p>
 
                                                 <p>{Number(productNum)} </p>
