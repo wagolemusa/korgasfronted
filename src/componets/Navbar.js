@@ -36,7 +36,7 @@ function Navbar() {
 
                     </div>
                     <div class="d-flex align-items-center">
-                    <Link to="/register" className='nav-link'>Register</Link>
+                    {/* <Link to="/register" className='nav-link'>Register</Link> */}
                     <Link to="/login" type="button" class="btn btn-primary">Login</Link>
 
                     </div>

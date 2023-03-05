@@ -42,6 +42,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassord />} />
           <Route path="/registerSuccessfully" element={<RegisterSuccessfully />} />
+          
 
           {/* Sub-Admin-Routes */}
           <Route path='/user' element={<User />} />

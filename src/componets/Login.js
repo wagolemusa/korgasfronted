@@ -65,10 +65,11 @@ function Login() {
 
     return (
         <div>
-            <div class="container login-container">
+            <div class="container login-box">
                 <div class="row">
-                    <div class="login-form-1">
-                        <h3>Login</h3>
+                  
+                <div class="login-header">KORGAS SYSTEM</div>
+                        <div class="login-body">
                         {!error &&
                             <div className='suc'>
                                 {success ? success : ""}
@@ -96,7 +97,7 @@ function Login() {
                                 <input type="submit" class="btnSubmit" value="Login" />
                             </div><br />
                             <div class="form-group">
-                                <Link to="/forgetpassword" class="ForgetPwd">Forget Password</Link>
+                                {/* <Link to="/forgetpassword" class="ForgetPwd">Forget Password</Link> */}
 
                             </div>
                         </form>
