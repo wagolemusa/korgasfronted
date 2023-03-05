@@ -39,7 +39,6 @@ function Login() {
         if (response.status === 201 && response.data.user.role === 'manager') {
             const { token, manager, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('user', user);
             localStorage.setItem('user', JSON.stringify(user));
             window.location.replace("/subadmin")
 
