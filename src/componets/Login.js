@@ -42,11 +42,21 @@ function Login() {
             localStorage.setItem('user', JSON.stringify(user));
             window.location.replace("/subadmin")
 
+            setTimeout(() => {
+                localStorage.clear();
+                window.location.replace("/")
+            }, 300000)
+
         } else if (response.status === 201 && response.data.user.role === 'customer') {
             const { token, customer, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(user.price));
+            localStorage.setItem('user', JSON.stringify(user.price))
             window.location.replace("/customer")
+
+            setTimeout(() => {
+                localStorage.clear();
+                window.location.replace("/")
+              }, 300000)
 
         } else if (response.status === 201 && response.data.user.role === 'user') {
             const { token, user } = response.data;
