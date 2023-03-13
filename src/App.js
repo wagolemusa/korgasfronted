@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import './App.css';
 import Navbar from './componets/Navbar';
 // import { Routes, Route, Router } from "react-router-dom"
@@ -25,12 +26,25 @@ import Stock from './subaddmin/shops/Stock'
 import Product from './subaddmin/Product';
 import Productcateogry from './subaddmin/Productcategory'
 import EditEmployee from './subaddmin/EditEmployee';
+import { useDispatch, useSelector } from 'react-redux';
 
 // customer Routes
 import CustomerDashoard from './Customers/CustomerDashbord';
 import Book from './Customers/Book';
+import { isUserLoggedIn } from './context/Context';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth)
+
+  useEffect(() => {
+    if(!auth.authenticate){
+        dispatch(isUserLoggedIn());
+    }
+    // dispatch(getInitialData());
+},[auth, dispatch]);
+
   return (
     <div className="App">
       <Router>
@@ -42,6 +56,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassord />} />
           <Route path="/registerSuccessfully" element={<RegisterSuccessfully />} />
+
 
           {/* Sub-Admin-Routes */}
           <Route path='/user' element={<User />} />

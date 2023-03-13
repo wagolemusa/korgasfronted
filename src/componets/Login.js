@@ -42,11 +42,21 @@ function Login() {
             localStorage.setItem('user', JSON.stringify(user));
             window.location.replace("/subadmin")
 
+            setTimeout(() => {
+                localStorage.clear();
+                window.location.replace("/")
+            }, 300000)
+
         } else if (response.status === 201 && response.data.user.role === 'customer') {
             const { token, customer, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(user.price));
+            localStorage.setItem('user', JSON.stringify(user.price))
             window.location.replace("/customer")
+
+            setTimeout(() => {
+                localStorage.clear();
+                window.location.replace("/")
+              }, 300000)
 
         } else if (response.status === 201 && response.data.user.role === 'user') {
             const { token, user } = response.data;
@@ -65,10 +75,11 @@ function Login() {
 
     return (
         <div>
-            <div class="container login-container">
+            <div class="container login-box">
                 <div class="row">
-                    <div class="login-form-1">
-                        <h3>Login</h3>
+                  
+                <div class="login-header">KORGAS SYSTEM</div>
+                        <div class="login-body">
                         {!error &&
                             <div className='suc'>
                                 {success ? success : ""}
@@ -96,7 +107,7 @@ function Login() {
                                 <input type="submit" class="btnSubmit" value="Login" />
                             </div><br />
                             <div class="form-group">
-                                <Link to="/forgetpassword" class="ForgetPwd">Forget Password</Link>
+                                {/* <Link to="/forgetpassword" class="ForgetPwd">Forget Password</Link> */}
 
                             </div>
                         </form>

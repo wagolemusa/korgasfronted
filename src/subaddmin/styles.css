@@ -15,7 +15,7 @@
 .btnSubmit {
     font-weight: 600;
     color: #fff;
-    background-color: #0062cc;
+    background-color: #54B4D3;
 }
 
 .items {
@@ -166,3 +166,31 @@ th{
     font-size: 30px;
     font-weight: 600;
   }
+
+  .login-box
+		{
+			height: 50%;
+			width: 30%;
+			/* border: 1px solid rgb(240, 4, 4); */
+			margin-left: 30%;
+			margin-top: 7%;
+			position: relative;
+      box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+      		/* background: #dadada; */
+		}
+		.login-header
+		{
+			text-align: center;
+			font-family: "vardhana",cursive;
+			font-size: 35px;
+      font-weight: 600;
+			/* background: linear-gradient(to bottom,  0%, #f32500 100%); */
+			color: #f32500;
+			position: relative;
+      box-shadow: 1px 3px 14px  rgba(241, 223, 223, 0.5);
+		}
+		.login-body
+		{
+			padding: 20px;
+			line-height: 2;
+		}
